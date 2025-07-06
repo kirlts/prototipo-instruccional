@@ -1,0 +1,462 @@
+{
+  "name": "Asistente de Diseño Instruccional",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "value": "di_knowledge_base",
+          "mode": "list"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        -820,
+        -120
+      ],
+      "id": "3f04d3ad-1434-43a9-9880-507e3c2030cd",
+      "name": "Simple Vector Store"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -820,
+        20
+      ],
+      "id": "f0c146ae-555b-4112-8808-64185ccf2c7a",
+      "name": "Embeddings Google Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "NcRpng3KLTc65R7y",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "[\n    {\n      \"@id\": \"qm:standard/GS1/1.1\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"1.1\",\n      \"nombre\": \"Las instrucciones dejan claro cómo empezar y dónde encontrar los diversos componentes del curso.\",\n      \"descripcion\": \"La información publicada al principio del curso indica qué hacer primero, proporciona una visión general del curso e instrucciones detalladas de navegación, y anima al estudiante a explorar el sitio del curso. Los instructores pueden optar por incorporar parte de esta información en el sílabo del curso u otros documentos del curso. Una característica útil es un botón o icono de \\\"Léame Primero\\\" o \\\"Comience Aquí\\\" en la página de inicio del curso, que enlaza a los estudiantes con la información introductoria.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS1\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS1\",\n        \"nombre\": \"Descripción General e Introducción del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS1/1.2\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"1.2\",\n      \"nombre\": \"Se introduce a los estudiantes en el propósito y la estructura del curso.\",\n      \"descripcion\": \"Se proporciona información en el sitio del curso para ayudar a los estudiantes a comprender el propósito del curso y cómo se estructura y lleva a cabo el proceso de aprendizaje, incluyendo el calendario del curso, la explicación de la modalidad de entrega (por ejemplo, en línea o híbrida), los modos de comunicación y participación, los tipos de actividades de aprendizaje y cómo se evaluará el aprendizaje. La información también puede incluir explicaciones sobre el propósito de actividades específicas del curso, como construir una comunidad, ampliar perspectivas o fomentar la inclusión y el sentido de pertenencia.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS1\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS1\",\n        \"nombre\": \"Descripción General e Introducción del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS1/1.3\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"1.3\",\n      \"nombre\": \"Las pautas de comunicación para el curso están claramente establecidas.\",\n      \"descripcion\": \"Las pautas de comunicación (a veces denominadas \\\"pautas de la comunidad\\\") están claramente establecidas en el sílabo del curso u otros documentos del curso. Las formas de comunicación pueden incluir escrita, oral y/o visual. Los métodos de comunicación pueden incluir correo electrónico, foros de discusión, tareas, sesiones de curso sincrónicas y otras interacciones o colaboraciones. Como el comportamiento dentro de la comunidad de aprendizaje está influenciado cultural y contextualmente, es importante ser explícito sobre las expectativas de comunicación dentro del curso. Se puede invitar a los estudiantes a contribuir a la formación del contrato social o las pautas de la comunidad del curso.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS1\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS1\",\n        \"nombre\": \"Descripción General e Introducción del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS1/1.4\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"1.4\",\n      \"nombre\": \"Las políticas del curso e institucionales que el estudiante debe cumplir se indican claramente dentro del curso, o se proporciona un enlace a las políticas actuales.\",\n      \"descripcion\": \"Las políticas del curso e institucionales pueden abordar asuntos como la conducta del estudiante, la integridad académica, el establecimiento de la asistencia, la calificación de \\\"Incompleto\\\", el retiro sin penalización, la confidencialidad en el aula, las políticas o declaraciones de diversidad, equidad e inclusión (incluidas las adaptaciones religiosas), las disposiciones para los miembros del servicio militar y los veteranos, las quejas de los estudiantes, la comunicación electrónica, la supervisión de exámenes (proctoring), la accesibilidad y otros. Confirme que las políticas se explican claramente y que las declaraciones de las políticas en sí, o un enlace directo a ellas, se encuentran en un lugar destacado del curso.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS1\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS1\",\n        \"nombre\": \"Descripción General e Introducción del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS1/1.5\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"1.5\",\n      \"nombre\": \"Los requisitos tecnológicos mínimos para el curso se indican claramente y se proporciona información sobre cómo obtener las tecnologías.\",\n      \"descripcion\": \"La palabra \\\"tecnologías\\\" abarca una amplia gama, incluyendo hardware, software, periféricos (cámaras web, micrófonos, etc.), suscripciones, complementos (plug-ins) y aplicaciones móviles (apps). Las tecnologías requeridas para completar las actividades del curso están claramente listadas. La información del curso especifica qué actividades del curso requieren el uso de una computadora y cuáles pueden completarse con diferentes tipos de hardware (dispositivos móviles frente a computadoras) y/o software. Se proporciona a los estudiantes información detallada sobre dónde y cómo pueden obtener las tecnologías requeridas para el curso.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS1\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS1\",\n        \"nombre\": \"Descripción General e Introducción del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS1/1.6\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"1.6\",\n      \"nombre\": \"Las habilidades técnicas y de alfabetización digital informativa que se esperan del estudiante están claramente establecidas.\",\n      \"descripcion\": \"Se especifican las habilidades técnicas generales y específicas del curso que los estudiantes deben tener para tener éxito en el curso. La alfabetización digital informativa se refiere a la capacidad de localizar, evaluar, aplicar, crear y comunicar conocimiento utilizando la tecnología.\",\n      \"puntos\": 1,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS1\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS1\",\n        \"nombre\": \"Descripción General e Introducción del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS1/1.7\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"1.7\",\n      \"nombre\": \"El conocimiento previo requerido en la disciplina y/o cualquier competencia específica se indica claramente en el sitio del curso.\",\n      \"descripcion\": \"El conocimiento y la experiencia previos requeridos ayudan a los estudiantes a conectar el nuevo material de estudio con su conocimiento existente. El conocimiento previo se conoce comúnmente como conocimiento prerrequisito. La información sobre el conocimiento y la experiencia previos para el éxito del estudiante en el curso se explica claramente y se encuentra en un lugar destacado dentro del curso, en documentos vinculados al curso o en material de apoyo proporcionado al estudiante por otros medios.\",\n      \"puntos\": 1,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS1\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS1\",\n        \"nombre\": \"Descripción General e Introducción del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS1/1.8\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"1.8\",\n      \"nombre\": \"La auto-presentación del instructor es acogedora y está disponible en el sitio del curso.\",\n      \"descripcion\": \"La presentación del instructor establece un sentido de comunidad y conexión entre el instructor y los estudiantes. Presenta al instructor como una persona agradable y accesible e incluye información básica como el nombre del instructor, título, foto u otra representación visual, campo de especialización, dirección de correo electrónico, número de teléfono y horario de oficina (virtual o en el campus).\",\n      \"puntos\": 1,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS1\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS1\",\n        \"nombre\": \"Descripción General e Introducción del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS1/1.9\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"1.9\",\n      \"nombre\": \"Los estudiantes tienen la oportunidad de presentarse a sí mismos.\",\n      \"descripcion\": \"Las presentaciones de los estudiantes al comienzo del curso ayudan a crear un ambiente de aprendizaje acogedor y un sentido de comunidad. Se les pide a los estudiantes que se presenten y se les da orientación sobre dónde y cómo hacerlo.\",\n      \"puntos\": 1,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS1\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS1\",\n        \"nombre\": \"Descripción General e Introducción del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS2/2.1\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"2.1\",\n      \"nombre\": \"Los objetivos de aprendizaje a nivel de curso describen resultados que son medibles.\",\n      \"descripcion\": \"Los objetivos de aprendizaje medibles a nivel de curso describen de manera precisa y clara lo que los estudiantes podrán hacer si completan con éxito el curso. Los objetivos a nivel de curso describen el logro deseado del estudiante utilizando términos que son lo suficientemente específicos y observables como para ser medidos por el instructor. En algunas instituciones, los objetivos de aprendizaje pueden denominarse \\\"competencias\\\" o \\\"resultados de aprendizaje\\\".\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS2\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS2\",\n        \"nombre\": \"Objetivos de Aprendizaje (Competencias)\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS2/2.2\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"2.2\",\n      \"nombre\": \"Los objetivos de aprendizaje a nivel de módulo/unidad describen resultados que son medibles y consistentes con los objetivos a nivel de curso.\",\n      \"descripcion\": \"Los objetivos de aprendizaje a nivel de módulo/unidad se alinean y son más específicos que los objetivos de aprendizaje a nivel de curso. Los objetivos de aprendizaje a nivel de módulo/unidad describen la competencia del estudiante en términos específicos y observables y en partes más pequeñas y discretas. Los objetivos describen las competencias, habilidades y conocimientos específicos que los estudiantes pueden demostrar a intervalos regulares a lo largo del curso. Los objetivos a nivel de módulo/unidad están alineados con los objetivos a nivel de curso.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS2\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS2\",\n        \"nombre\": \"Objetivos de Aprendizaje (Competencias)\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS2/2.3\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"2.3\",\n      \"nombre\": \"Los objetivos de aprendizaje están claramente establecidos, centrados en el estudiante y ubicados de forma destacada en el curso.\",\n      \"descripcion\": \"Los objetivos de aprendizaje a nivel de curso y de módulo/unidad están claramente establecidos. Se evita el uso de jerga educativa o disciplinaria, terminología no explicada y lenguaje innecesariamente complejo. Los objetivos de aprendizaje están centrados en el estudiante. Los objetivos de aprendizaje describen lo que los estudiantes podrán hacer en lugar de enumerar lo que se enseña en el curso. Están escritos de una manera que permite a los estudiantes, incluidos aquellos con diversos antecedentes lingüísticos, comprender fácilmente su significado y los resultados de aprendizaje esperados. Se encuentran en un lugar destacado en el sitio del curso.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS2\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS2\",\n        \"nombre\": \"Objetivos de Aprendizaje (Competencias)\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS2/2.4\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"2.4\",\n      \"nombre\": \"La relación entre los objetivos de aprendizaje, las actividades de aprendizaje y las evaluaciones se deja en claro.\",\n      \"descripcion\": \"Confirme que la conexión entre los objetivos de aprendizaje y las actividades y evaluaciones de aprendizaje asignadas se transmite claramente, ya sea a través de texto, un diagrama o algún otro medio. La relación entre los objetivos de aprendizaje, las actividades de aprendizaje y las evaluaciones es explícita. Esta explicitud permite a los estudiantes visualizar cómo las actividades de aprendizaje y las evaluaciones están directamente conectadas con los objetivos. El propósito de las actividades y evaluaciones se explica en términos de los objetivos de aprendizaje.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS2\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS2\",\n        \"nombre\": \"Objetivos de Aprendizaje (Competencias)\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS2/2.5\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"2.5\",\n      \"nombre\": \"Los objetivos de aprendizaje son adecuados y reflejan el nivel del curso.\",\n      \"descripcion\": \"El nivel de logro esperado, tal como se describe en los objetivos de aprendizaje, es apropiado para el tipo y nivel del curso. Las taxonomías que describen los niveles de aprendizaje pueden ser útiles para los revisores al determinar si los objetivos corresponden al nivel del curso.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS2\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS2\",\n        \"nombre\": \"Objetivos de Aprendizaje (Competencias)\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS3/3.1\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"3.1\",\n      \"nombre\": \"Las evaluaciones miden el logro de los objetivos de aprendizaje establecidos.\",\n      \"descripcion\": \"Las evaluaciones del curso (formas de confirmar el progreso y el logro del estudiante) son consistentes con los objetivos de aprendizaje a nivel de curso y de módulo/unidad (2.1 y 2.2) al medir el progreso o el logro del aprendizaje. Los materiales de instrucción (4.1), las actividades de aprendizaje (5.1) y las herramientas del curso (6.1) apoyan los objetivos de aprendizaje y permiten a los estudiantes tener éxito en las evaluaciones.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS3\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS3\",\n        \"nombre\": \"Evaluación y Medición\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS3/3.2\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"3.2\",\n      \"nombre\": \"La política de calificación del curso se establece claramente, está disponible al comienzo del curso y es consistente en todo el sitio del curso.\",\n      \"descripcion\": \"Una declaración escrita clara al comienzo del curso explica completamente al estudiante cómo se calculan las calificaciones del curso. Dependiendo del sistema de calificación utilizado, los puntos, porcentajes y ponderaciones para cada componente de la calificación del curso se establecen claramente, y se explica la(s) relación(es) entre puntos, porcentajes, ponderaciones y calificaciones con letras. Si se utiliza un enfoque de calificación alternativo, el enfoque se explica claramente, incluyendo cómo se evaluará el trabajo y por quién. El trabajo tardío se aborda en la política de calificación.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS3\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS3\",\n        \"nombre\": \"Evaluación y Medición\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS3/3.3\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"3.3\",\n      \"nombre\": \"Se proporcionan criterios específicos y descriptivos para la evaluación del trabajo de los estudiantes, y su conexión con la política de calificación del curso se explica claramente.\",\n      \"descripcion\": \"Se proporciona a los estudiantes una descripción clara y completa de los criterios que se utilizarán para evaluar su trabajo en el curso. Los criterios de evaluación se proporcionan a los estudiantes antes de comenzar una tarea o evaluación en particular. La descripción o declaración de criterios proporciona a los estudiantes una guía clara sobre las expectativas del instructor y sobre los componentes requeridos del trabajo de curso y la participación.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS3\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS3\",\n        \"nombre\": \"Evaluación y Medición\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS3/3.4\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"3.4\",\n      \"nombre\": \"El curso incluye múltiples tipos de evaluaciones que están secuenciadas y son adecuadas al nivel del curso.\",\n      \"descripcion\": \"Las evaluaciones proporcionan múltiples formas para que los estudiantes demuestren progreso y logros y están diseñadas para acomodar a estudiantes diversos. Los cursos pueden utilizar una combinación de tipos de evaluación. Las evaluaciones están secuenciadas de manera que permiten a los estudiantes construir sobre conocimientos y habilidades previas adquiridas en este curso y en cursos prerrequisito. Las evaluaciones están espaciadas para dar a los estudiantes tiempo adecuado para completar el trabajo de manera reflexiva y demostrar el logro del aprendizaje.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS3\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS3\",\n        \"nombre\": \"Evaluación y Medición\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS3/3.5\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"3.5\",\n      \"nombre\": \"Los tipos y la temporalidad de las evaluaciones brindan a los estudiantes múltiples oportunidades para seguir su progreso de aprendizaje con retroalimentación oportuna.\",\n      \"descripcion\": \"Las evaluaciones más pequeñas y de menor peso brindan a los estudiantes oportunidades para recibir retroalimentación oportuna que se puede utilizar para seguir el progreso del aprendizaje y mejorar el logro del aprendizaje. Además, el aprendizaje se mejora si los estudiantes reciben retroalimentación frecuente, sustantiva y oportuna. La retroalimentación puede provenir directamente del instructor, de evaluaciones que tienen retroalimentación incorporada o de otros estudiantes.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS3\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS3\",\n        \"nombre\": \"Evaluación y Medición\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS3/3.6\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"3.6\",\n      \"nombre\": \"Las evaluaciones brindan orientación al estudiante sobre cómo mantener la integridad académica.\",\n      \"descripcion\": \"La integridad en el trabajo educativo permite que las comunidades de estudiantes interactúen con un espíritu de confianza, honestidad y equidad. Los estudiantes, particularmente en los cursos en línea, se benefician de información específica y contextualizada sobre cómo cumplir con las políticas y estándares de integridad académica institucionales (ver Estándar de Revisión Específico 1.4) a medida que completan las evaluaciones en el curso. Esta guía permite a los estudiantes aplicar los principios abstractos de la integridad académica a situaciones reales dentro del curso (y la disciplina).\",\n      \"puntos\": 1,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS3\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS3\",\n        \"nombre\": \"Evaluación y Medición\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS4/4.1\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"4.1\",\n      \"nombre\": \"Los materiales de instrucción contribuyen al logro de los objetivos de aprendizaje establecidos.\",\n      \"descripcion\": \"Los materiales de instrucción se alinean con los objetivos de aprendizaje para proporcionar la información y los recursos que los estudiantes necesitan para lograr los objetivos de aprendizaje establecidos. Pueden incluir, entre otros, libros de texto, materiales con licencia abierta (por ejemplo, de código abierto, recursos educativos abiertos), materiales creados por el editor o el instructor, presentaciones de diapositivas y contenido interactivo (como simulaciones), conferencias de expertos, videos, imágenes, diagramas y sitios web.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS4\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS4\",\n        \"nombre\": \"Materiales de Instrucción\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS4/4.2\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"4.2\",\n      \"nombre\": \"La relación entre el uso de los materiales de instrucción en el curso y la finalización de las actividades de aprendizaje y las evaluaciones se explica claramente.\",\n      \"descripcion\": \"Se proporciona a los estudiantes una explicación de cómo los materiales de instrucción los preparan para completar las actividades de aprendizaje y las evaluaciones. Si se proporcionan materiales de instrucción opcionales y se recomienda su uso en el curso, los materiales se etiquetan como opcionales. Se explica la relevancia de los materiales de instrucción requeridos y opcionales.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS4\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS4\",\n        \"nombre\": \"Materiales de Instrucción\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS4/4.3\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"4.3\",\n      \"nombre\": \"El curso modela la integridad académica que se espera de los estudiantes al proporcionar tanto referencias de fuentes como permisos para el uso de materiales de instrucción.\",\n      \"descripcion\": \"Los materiales de instrucción incluyen referencias de fuentes y se ha obtenido permiso para utilizar los materiales en el curso. Las fuentes de los materiales utilizados en el curso se identifican claramente con referencias. Esta expectativa se aplica a los materiales creados por el instructor, artículos de revistas, materiales de editores, libros de texto, imágenes, materiales gráficos, tablas, videos, grabaciones de audio, sitios web, diapositivas y todas las formas de multimedia.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS4\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS4\",\n        \"nombre\": \"Materiales de Instrucción\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS4/4.4\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"4.4\",\n      \"nombre\": \"Los materiales de instrucción representan la teoría y la práctica actualizadas en la disciplina.\",\n      \"descripcion\": \"Los materiales de instrucción representan el pensamiento, la práctica y la aplicación actuales en la disciplina.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS4\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS4\",\n        \"nombre\": \"Materiales de Instrucción\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS4/4.5\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"4.5\",\n      \"nombre\": \"Se utiliza una variedad de materiales de instrucción en el curso.\",\n      \"descripcion\": \"El curso presenta una variedad de materiales de instrucción relevantes que pueden incluir libros de texto y otras publicaciones, recursos creados por el instructor, sitios web y multimedia. La variedad puede tomar la forma de diferentes tipos de medios utilizados para entregar contenido. La variedad puede tomar la forma de diferentes perspectivas y diferentes representaciones de ideas. La variedad también puede aparecer en imágenes que representan diferentes tipos de personas.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS4\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS4\",\n        \"nombre\": \"Materiales de Instrucción\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS5/5.1\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"5.1\",\n      \"nombre\": \"Las actividades de aprendizaje ayudan a los estudiantes a lograr los objetivos establecidos.\",\n      \"descripcion\": \"Las actividades de aprendizaje proporcionan refuerzo y promueven el logro a través de la interacción con el contenido del curso y la comunidad de aprendizaje. Ejemplos de actividades incluyen participar en discusiones de clase, juegos de rol, excursiones virtuales, ejercicios de simulación, actividades basadas en escenarios y búsquedas del tesoro en la web; ver videos con preguntas de verificación incrustadas; crear esquemas, mapas conceptuales, organizadores gráficos y ejercicios de habilidades de laboratorio; y completar lecciones guiadas, cuestionarios de práctica y autoevaluaciones.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS5\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS5\",\n        \"nombre\": \"Actividades de Aprendizaje e Interacción del Estudiante\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS5/5.2\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"5.2\",\n      \"nombre\": \"Las actividades de aprendizaje brindan oportunidades para interacciones que apoyan el aprendizaje activo.\",\n      \"descripcion\": \"Las actividades de aprendizaje interactivas promueven el aprendizaje activo y el compromiso a través de tres tipos de interacción: estudiante-contenido, estudiante-instructor y estudiante-estudiante. Las interacciones significativas que promueven el desarrollo de habilidades de los estudiantes están diseñadas como actividades para apoyar los objetivos del curso y pueden variar con la materia, el propósito y el nivel del curso. El aprendizaje activo implica que los estudiantes se involucren \\\"haciendo\\\" algo, como analizar datos, evaluar posibles soluciones a un problema o aplicar conceptos e información.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS5\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS5\",\n        \"nombre\": \"Actividades de Aprendizaje e Interacción del Estudiante\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS5/5.3\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"5.3\",\n      \"nombre\": \"El plan del instructor para la interacción regular con los estudiantes de manera sustantiva durante el curso está claramente establecido.\",\n      \"descripcion\": \"Un plan claro para la interacción instructor-estudiante ayuda a promover una interacción sustantiva entre los instructores y los estudiantes durante el curso. El plan incluye detalles sobre cuándo los estudiantes pueden esperar las respuestas del instructor a las preguntas, a qué intervalos los estudiantes recibirán retroalimentación sustantiva del instructor sobre las tareas y cómo el instructor ha diseñado otras oportunidades regulares de retroalimentación y comunicación en el curso.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS5\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS5\",\n        \"nombre\": \"Actividades de Aprendizaje e Interacción del Estudiante\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS5/5.4\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"5.4\",\n      \"nombre\": \"Los requisitos para la interacción del estudiante están claramente establecidos.\",\n      \"descripcion\": \"Una explicación clara de los requisitos para la interacción del estudiante ayuda a los estudiantes a planificar y gestionar su participación en clase y es importante para promover la participación activa de los estudiantes en el curso. La declaración de requisitos también proporciona una base para que el instructor evalúe la participación del estudiante. Busque una declaración clara de las expectativas del instructor para la participación del estudiante en las interacciones requeridas del curso (frecuencia, duración, puntualidad, etc.), incluidas las interacciones entre estudiantes en evaluaciones y actividades, si es relevante.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS5\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS5\",\n        \"nombre\": \"Actividades de Aprendizaje e Interacción del Estudiante\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS6/6.1\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"6.1\",\n      \"nombre\": \"Las herramientas utilizadas en el curso apoyan los objetivos de aprendizaje.\",\n      \"descripcion\": \"Las herramientas son tipos de software y aplicaciones que permiten la interacción del estudiante y pueden utilizarse para la entrega de contenido o para proporcionar retroalimentación en el curso; pueden estar incluidas o ser externas al sistema de gestión del aprendizaje (LMS). Se proporciona información e instrucciones claras sobre cómo las herramientas apoyan los objetivos de aprendizaje. Por ejemplo, un curso que requiere publicar en un foro de discusión deja en claro cómo las herramientas utilizadas para las discusiones apoyan un objetivo de aprendizaje. Las herramientas no se utilizan simplemente por sí mismas.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS6\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS6\",\n        \"nombre\": \"Tecnología del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS6/6.2\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"6.2\",\n      \"nombre\": \"Las herramientas del curso promueven el compromiso del estudiante y el aprendizaje activo.\",\n      \"descripcion\": \"Las herramientas utilizadas en el curso ayudan a los estudiantes a participar activamente en el proceso de aprendizaje en lugar de absorber pasivamente la información. Las herramientas del curso seleccionadas apoyan el aprendizaje activo a través de la interacción estudiante-instructor, estudiante-contenido y estudiante-estudiante. Son evidentes las herramientas de aprendizaje activo que fomentan el aprendizaje mediante la interacción, la recuperación, la discusión, la investigación y la creación.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS6\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS6\",\n        \"nombre\": \"Tecnología del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS6/6.3\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"6.3\",\n      \"nombre\": \"Se utiliza una variedad de tecnología en el curso.\",\n      \"descripcion\": \"El curso utiliza una variedad de herramientas tecnológicas, como videos, foros de discusión, redes sociales, tecnologías móviles, juegos, simulaciones, blogs, podcasts y mundos virtuales. La variedad no se refiere a un número específico, sino que indica que se utilizan diferentes tipos de tecnología alineada en el curso. La tecnología incluye una amplia gama de diferentes hardware, software, suscripciones y complementos (plug-ins).\",\n      \"puntos\": 1,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS6\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS6\",\n        \"nombre\": \"Tecnología del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS6/6.4\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"6.4\",\n      \"nombre\": \"El curso proporciona a los estudiantes información sobre la protección de sus datos y privacidad.\",\n      \"descripcion\": \"El diseño del curso, el uso de herramientas y la configuración pueden mejorar la privacidad del estudiante. Se proporcionan los pasos que los estudiantes pueden tomar para proteger su privacidad con las actividades del curso, el uso de herramientas y las interacciones con otros. Las herramientas utilizadas en el curso (tanto seleccionadas por el instructor como integradas institucionalmente) incluyen enlaces a las políticas de privacidad proporcionadas por los creadores de las herramientas.\",\n      \"puntos\": 1,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS6\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS6\",\n        \"nombre\": \"Tecnología del Curso\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS7/7.1\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"7.1\",\n      \"nombre\": \"Las instrucciones del curso articulan o enlazan a una descripción clara del soporte técnico ofrecido y cómo obtenerlo.\",\n      \"descripcion\": \"El soporte técnico para los estudiantes difiere de una institución a otra e incluye información como cómo iniciar sesión, cómo usar las herramientas y características del sistema de gestión de aprendizaje; y cómo obtener soporte de la mesa de ayuda. El soporte técnico no incluye ayuda con el contenido del curso o las tareas o los servicios de apoyo académico o los servicios de apoyo al estudiante.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS7\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS7\",\n        \"nombre\": \"Apoyo al Estudiante\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS7/7.2\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"7.2\",\n      \"nombre\": \"Las instrucciones del curso articulan o enlazan a las políticas de accesibilidad y los servicios de acomodación de la institución.\",\n      \"descripcion\": \"Las políticas de accesibilidad o las declaraciones de acomodación establecen que los servicios y las acomodaciones están disponibles para los estudiantes con discapacidades e informan al estudiante sobre cómo se pueden obtener dichos servicios.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS7\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS7\",\n        \"nombre\": \"Apoyo al Estudiante\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS7/7.3\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"7.3\",\n      \"nombre\": \"Las instrucciones del curso articulan o enlazan a los servicios y recursos de apoyo académico de la institución que pueden ayudar a los estudiantes a tener éxito en el curso.\",\n      \"descripcion\": \"Los servicios y recursos de apoyo académico, y el alcance de lo que implican, difieren de una institución a otra. Para fines de revisión, los servicios y recursos de apoyo académico pueden incluir una orientación en línea, acceso a recursos de la biblioteca, una evaluación o encuesta de preparación, servicios de pruebas, tutoría, servicios de idiomas no nativos, centros de escritura y/o matemáticas, programas de instrucción suplementarios, asistentes de enseñanza y tutoriales u otras formas de orientación sobre actividades.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS7\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS7\",\n        \"nombre\": \"Apoyo al Estudiante\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS7/7.4\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"7.4\",\n      \"nombre\": \"Las instrucciones del curso articulan o enlazan a los servicios y recursos para estudiantes de la institución que pueden ayudar a los estudiantes a tener éxito.\",\n      \"descripcion\": \"Los servicios y recursos para estudiantes difieren de una institución a otra. Para los fines de esta revisión, los servicios y recursos de apoyo incluyen asesoramiento, inscripción, ayuda financiera, servicios para veteranos, vida estudiantil o en el campus, asesoramiento de salud mental, servicios de carrera, talleres en línea, organizaciones estudiantiles y servicios y recursos del departamento.\",\n      \"puntos\": 1,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS7\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS7\",\n        \"nombre\": \"Apoyo al Estudiante\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS8/8.1\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"8.1\",\n      \"nombre\": \"La navegación del curso facilita la facilidad de uso.\",\n      \"descripcion\": \"La navegación se refiere al proceso de planificar, controlar y registrar el movimiento de un estudiante de un lugar a otro en el curso en línea. La navegación en todo el curso es consistente, lógica y eficiente. Confirme que las estrategias de navegación del curso facilitan la facilidad de movimiento a través del curso y las actividades del curso.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS8\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS8\",\n        \"nombre\": \"Accesibilidad y Usabilidad\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS8/8.2\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"8.2\",\n      \"nombre\": \"El diseño del curso facilita la legibilidad.\",\n      \"descripcion\": \"Los elementos de diseño del curso maximizan la usabilidad al facilitar la legibilidad y minimizar las distracciones. La legibilidad es una medida de lo fácil que es leer y seguir el contenido. La legibilidad incluye la presentación del contenido, así como la claridad y legibilidad del texto.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS8\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS8\",\n        \"nombre\": \"Accesibilidad y Usabilidad\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS8/8.3\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"8.3\",\n      \"nombre\": \"El texto en el curso es accesible.\",\n      \"descripcion\": \"El texto se puede encontrar en archivos, documentos, diapositivas, páginas del sistema de gestión de aprendizaje (LMS) y sitios web. Los revisores pueden usar herramientas de accesibilidad y verificadores para ayudar en la revisión de la accesibilidad del texto. Cuando el texto en un curso es accesible, los estudiantes se benefician. Por ejemplo, cualquier estudiante puede buscar en un PDF accesible por palabras clave. La mayoría de los estudiantes pueden acceder al contenido, completar actividades e interactuar con otros sin necesidad de adaptaciones.\",\n      \"puntos\": 3,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS8\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS8\",\n        \"nombre\": \"Accesibilidad y Usabilidad\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS8/8.4\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"8.4\",\n      \"nombre\": \"Las imágenes en el curso son accesibles.\",\n      \"descripcion\": \"Las imágenes que son significativas para la experiencia de aprendizaje incluyen texto alternativo (alt-text), descripciones largas u otros medios de descripción. Las imágenes que son decorativas se marcan como tales. Las imágenes se pueden encontrar en presentaciones de diapositivas narradas, páginas web, documentos y dentro de las páginas del LMS. Las imágenes incluyen fotografías, cuadros, gráficos, infografías, mapas, etc.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS8\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS8\",\n        \"nombre\": \"Accesibilidad y Usabilidad\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS8/8.5\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"8.5\",\n      \"nombre\": \"El contenido de video y audio en el curso es accesible.\",\n      \"descripcion\": \"El contenido de video y audio se puede encontrar en videos, podcasts, presentaciones de diapositivas narradas, animaciones, simulaciones y otros multimedia. El contenido de video y audio incluye medios alternativos de acceso para los estudiantes a través de la adición de subtítulos o transcripciones con información equivalente. Cuando el video y el audio en un curso son accesibles, la mayoría de los estudiantes se benefician.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS8\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS8\",\n        \"nombre\": \"Accesibilidad y Usabilidad\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS8/8.6\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"8.6\",\n      \"nombre\": \"El multimedia en el curso es fácil de usar.\",\n      \"descripcion\": \"El multimedia incluye el uso o la integración de varios tipos de medios como imágenes, audio, video, animaciones y componentes interactivos. Los elementos interactivos integrales al contenido son multiplataforma (PC, Mac) y multi-navegador, o se proporciona una guía sobre el mejor navegador para usar. Se notifica a los estudiantes sobre cualquier limitación, como la necesidad de navegadores específicos o requisitos de alto ancho de banda.\",\n      \"puntos\": 2,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS8\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS8\",\n        \"nombre\": \"Accesibilidad y Usabilidad\"\n      }\n    },\n    {\n      \"@id\": \"qm:standard/GS8/8.7\",\n      \"@type\": \"EstandarCalidad\",\n      \"identificador\": \"8.7\",\n      \"nombre\": \"Se proporcionan declaraciones de accesibilidad del proveedor para las tecnologías utilizadas en el curso.\",\n      \"descripcion\": \"Los estudiantes tienen acceso a información sobre la accesibilidad de las tecnologías utilizadas en el curso, incluido el sistema de gestión del aprendizaje. Este Estándar de Revisión Específico se cumple si el curso incluye un enlace a la declaración de accesibilidad del proveedor para cada tecnología. Si no existe una declaración de accesibilidad para una tecnología en particular, se proporciona una declaración de que la declaración de accesibilidad no existe, junto con la información de contacto del proveedor.\",\n      \"puntos\": 1,\n      \"perteneceAEstandarGeneral\": {\n        \"@id\": \"qm:standard/GS8\",\n        \"@type\": \"EstandarGeneralCalidad\",\n        \"identificador\": \"GS8\",\n        \"nombre\": \"Accesibilidad y Usabilidad\"\n      }\n    },\n    { \"json\": { \"termino\": \"AprendizajeEsperado\", \"rol\": \"Meta de aprendizaje (Objetivo)\", \"relevancia_qa\": \"Claridad, Mensurabilidad (QM 2.1, 2.2)\" } },\n    { \"json\": { \"termino\": \"IndicadorLogro\", \"rol\": \"Evidencia observable del logro del AE\", \"relevancia_qa\": \"Base para alineación (QM 2.1, 2.2)\" } },\n    { \"json\": { \"termino\": \"ActividadAprendizaje\", \"rol\": \"Tarea para facilitar el aprendizaje\", \"relevancia_qa\": \"Alineación con objetivos, Promoción del aprendizaje activo (QM 5.1)\" } },\n    { \"json\": { \"termino\": \"Evaluacion\", \"rol\": \"Medición del logro del AE/IL\", \"relevancia_qa\": \"Alineación con objetivos, Claridad de métodos (QM 3.1, 3.4)\" } },\n    { \"json\": { \"termino\": \"evaluaIndicador\", \"rol\": \"Propiedad de Enlace que conecta Evaluación con IL/AE medido\", \"relevancia_qa\": \"Verificación de Alineación Evaluación-Objetivo (QM 3.1)\" } },\n    { \"json\": { \"termino\": \"apoyaIndicador\", \"rol\": \"Propiedad de Enlace que conecta Actividad con IL/AE apoyado\", \"relevancia_qa\": \"Verificación de Alineación Actividad-Objetivo (QM 5.1)\" } }\n]",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        -660,
+        20
+      ],
+      "id": "7a56cdcb-7819-4d70-8edd-06f39f343f58",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "content": "## Carga de Base de Conocimiento para IA \n(Ejecutar 1 Sola Vez)\n\n",
+        "height": 360,
+        "width": 480
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        -200
+      ],
+      "id": "17d04cf0-8bb5-43f6-8463-f5a0c4d22fbd",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "public": true,
+        "options": {
+          "allowFileUploads": true
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -820,
+        520
+      ],
+      "id": "be825281-7cfd-45ec-a7ce-d90835ee3ae3",
+      "name": "When chat message received",
+      "webhookId": "e4f4d3e2-7be7-4a6a-8524-80970910760d"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.chatInput }}",
+                    "rightValue": "/upload",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    },
+                    "id": "a5fdb336-05f0-4893-9c0e-32027b0d6325"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "upload"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "c53521e3-d2eb-4128-998f-d86aae095445",
+                    "leftValue": "={{ $json.chatInput }}",
+                    "rightValue": "/",
+                    "operator": {
+                      "type": "string",
+                      "operation": "startsWith"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "consultas"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -600,
+        520
+      ],
+      "id": "be6e5c90-fd49-4668-adf1-14c9c364c87e",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "=/uploads/input_file.{{ $json.files[0].fileExtension }}",
+        "dataPropertyName": "data0",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        -300,
+        240
+      ],
+      "id": "cbec3123-09e6-4813-ade9-84aecca2daf1",
+      "name": "Guardar en /uploads"
+    },
+    {
+      "parameters": {
+        "fileSelector": "/uploads/output.txt",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        60,
+        240
+      ],
+      "id": "b467a3d7-bef4-4fc6-a78b-dc911b6a6b61",
+      "name": "Leer output.txt"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-flash",
+        "options": {
+          "temperature": 0
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        600,
+        420
+      ],
+      "id": "92ad5a0a-58d8-4ca0-8ac3-94a10d01da2b",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "NcRpng3KLTc65R7y",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Este código toma el texto extraído y lo enriquece con el contexto completo\n// del glosario y los estándares QM para crear un prompt masivo para Gemini.\n\nconst textoDI = $input.first().json.textoExtraido\n\nconst contextoGlosario = `\n--- INICIO CONTEXTO GLOSARIO ---\n- **Actividad de Aprendizaje (actividadAprendizaje):** Tareas o experiencias diseñadas para ayudar a los estudiantes a alcanzar los objetivos. (Alineación QM: 2.4, 5.1, 5.2).\n- **Apoya Indicador (apoyaIndicador):** Relación que enlaza una Actividad de Aprendizaje con el/los Indicador(es) de Logro que ayuda a desarrollar. (Alineación QM: 2.4, 4.1, 5.1).\n- **Aprendizaje Esperado (aprendizajeEsperado):** Declaración medible de lo que se espera que los estudiantes sepan o puedan hacer. Es la meta. (Alineación QM: 2.1, 2.2, 2.3).\n- **Curso (curso):** La unidad educativa completa y global.\n- **Evaluacion (evaluacion):** Métodos o tareas utilizadas para medir el logro de los objetivos. (Alineación QM: 2.4, 3.1, 3.3, 3.4, 3.5).\n- **Evalúa Indicador (evaluaIndicador):** Relación que enlaza una Evaluación con el/los Indicador(es) de Logro que mide. (Alineación QM: 2.4, 3.1).\n- **Indicador de Logro (indicadorLogro):** Descripciones observables y medibles que evidencian el logro de un Aprendizaje Esperado. (Alineación QM: 2.1, 2.2, 2.4).\n- **Instrumento de Evaluación (instrumentoEvaluacion):** La herramienta específica para recoger evidencia (ej. rúbrica, pauta). (Alineación QM: 3.3).\n- **Recurso de Aprendizaje (recursoAprendizaje):** Materiales utilizados en el curso (ej. textos, videos, software). (Alineación QM: 4.1, 4.2, 4.3, 4.5, GS 8).\n- **Semana (semana):** Una unidad de organización temporal del curso.\n- **Unidad Didáctica (unidadDidactica):** Una división temática o temporal mayor dentro de un curso.\n- **Cumple Estándar QA (cumpleEstandarQA):** Propiedad para enlazar un elemento del diseño con el estándar de calidad específico que cumple.\n--- FIN CONTEXTO GLOSARIO ---\n`;\n\nconst contextoQM = `\n--- INICIO CONTEXTO ESTÁNDARES QM ---\n- Estándar 1.1 (3 Puntos): Las instrucciones dejan claro cómo empezar y dónde encontrar los diversos componentes del curso.\n- Estándar 1.2 (3 Puntos): Se introduce a los estudiantes en el propósito y la estructura del curso.\n- Estándar 1.3 (2 Puntos): Las pautas de comunicación para el curso están claramente establecidas.\n- Estándar 1.4 (2 Puntos): Las políticas del curso e institucionales se indican claramente.\n- Estándar 1.5 (2 Puntos): Los requisitos tecnológicos mínimos se indican claramente.\n- Estándar 1.6 (1 Punto): Las habilidades técnicas y de alfabetización digital esperadas están claramente establecidas.\n- Estándar 1.7 (1 Punto): El conocimiento previo requerido se indica claramente.\n- Estándar 1.8 (1 Punto): La auto-presentación del instructor es acogedora.\n- Estándar 1.9 (1 Punto): Los estudiantes tienen la oportunidad de presentarse.\n- Estándar 2.1 (3 Puntos): Los objetivos de aprendizaje a nivel de curso son medibles.\n- Estándar 2.2 (3 Puntos): Los objetivos de aprendizaje a nivel de módulo/unidad son medibles y consistentes.\n- Estándar 2.3 (3 Puntos): Los objetivos de aprendizaje están claramente establecidos y centrados en el estudiante.\n- Estándar 2.4 (3 Puntos): La relación entre objetivos, actividades y evaluaciones se deja en claro.\n- Estándar 2.5 (3 Puntos): Los objetivos de aprendizaje son adecuados al nivel del curso.\n- Estándar 3.1 (3 Puntos): Las evaluaciones miden el logro de los objetivos de aprendizaje establecidos.\n- Estándar 3.2 (3 Puntos): La política de calificación es clara, disponible y consistente.\n- Estándar 3.3 (3 Puntos): Se proporcionan criterios específicos y descriptivos para la evaluación.\n- Estándar 3.4 (2 Puntos): El curso incluye múltiples tipos de evaluaciones secuenciadas y adecuadas.\n- Estándar 3.5 (2 Puntos): El tipo y la temporalidad de las evaluaciones permiten seguir el progreso con retroalimentación oportuna.\n- Estándar 3.6 (1 Punto): Las evaluaciones brindan orientación sobre integridad académica.\n- Estándar 4.1 (3 Puntos): Los materiales de instrucción contribuyen al logro de los objetivos.\n- Estándar 4.2 (3 Puntos): Se explica claramente la relación entre materiales, actividades y evaluaciones.\n- Estándar 4.3 (2 Puntos): El curso modela la integridad académica proporcionando referencias y permisos.\n- Estándar 4.4 (2 Puntos): Los materiales representan teoría y práctica actualizadas.\n- Estándar 4.5 (2 Puntos): Se utiliza una variedad de materiales de instrucción.\n- Estándar 5.1 (3 Puntos): Las actividades de aprendizaje ayudan a lograr los objetivos.\n- Estándar 5.2 (3 Puntos): Las actividades de aprendizaje brindan oportunidades para interacciones que apoyan el aprendizaje activo.\n- Estándar 5.3 (3 Puntos): El plan del instructor para la interacción regular y sustantiva está claramente establecido.\n- Estándar 5.4 (2 Puntos): Los requisitos para la interacción del estudiante están claramente establecidos.\n- Estándar 8.1 (3 Puntos): La navegación del curso facilita la facilidad de uso.\n- Estándar 8.2 (3 Puntos): El diseño del curso facilita la legibilidad.\n- Estándar 8.3 (3 Puntos): El texto en el curso es accesible.\n- Estándar 8.4 (2 Puntos): Las imágenes en el curso son accesible.\n- Estándar 8.5 (2 Puntos): El contenido de video y audio en el curso es accesible.\n--- FIN CONTEXTO ESTÁNDARES QM ---\n`;\n\nconst promptCompleto = `\nTu rol es ser un sistema experto que transforma texto de un Diseño Instruccional a un formato JSON-LD. Tu única fuente de verdad para la estructura, tipos y nombres de propiedades es el CONTEXTO que te proporciono a continuación. ES MANDATORIO que uses esta estructura. NO INVENTES propiedades. La salida debe ser un único bloque de código JSON-LD válido, sin comentarios.\n\n**REGLAS ESTRICTAS:**\n1.  Toda la salida debe estar dentro de un array \\`@graph\\`.\n2.  Cada elemento (Curso, UnidadDidactica, Semana, ActividadAprendizaje, etc.) debe ser un objeto separado en el array \\`@graph\\`.\n3.  Usa \\`@id\\` para identificar unívocamente cada objeto y enlaza objetos entre sí usando sus \\`@id\\`.\n4.  Usa 'apoyaIndicador' para Actividades y 'evaluaIndicador' para Evaluaciones. Esta distinción es CRÍTICA.\n\n${contextoGlosario}\n${contextoQM}\n\nAhora, transforma el siguiente texto del Diseño Instruccional:\n\n--- INICIO TEXTO A TRANSFORMAR ---\n$input.first().json.textoExtraido\n--- FIN TEXTO A TRANSFORMAR ---\n`;\n\nreturn { json: { promptMasivo: promptCompleto } };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        420,
+        240
+      ],
+      "id": "d5f074cc-928b-4908-a433-47c14bb80fc7",
+      "name": "Construir Prompt"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "INSERT INTO diseños_instruccionales (nombre, contenido_jsonld)\nVALUES ('{{ $('When chat message received').item.json.files[0].fileName }} transformado {{ $now.toFormat('dd/MM') }}', '{{ JSON.stringify($json) }}'::jsonb)\nRETURNING id, nombre;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1100,
+        240
+      ],
+      "id": "71dfc0c3-1eea-4dba-a2aa-89d08241d60d",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "Tk6bUOMnU373XUjE",
+          "name": "Postgres account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.promptMasivo }}",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        600,
+        240
+      ],
+      "id": "d97f1aef-4ca4-480e-806d-fb7eeb058727",
+      "name": "DI a JSON-LD"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Recibe el output de Gemini como un string JSON\nlet geminiOutputString = $input.first().json.text;\n\n// PASO DE LIMPIEZA\nconst cleanedString = geminiOutputString.replace(/^```json\\n/, '').replace(/\\n```$/, '');\n\nlet diGenerado;\ntry {\n  diGenerado = JSON.parse(cleanedString);\n} catch (error) {\n  throw new Error(\"El output de Gemini no es un JSON válido. Output: \" + cleanedString);\n}\n\n// --- NUEVO PASO DE VERIFICACIÓN PARA ENCONTRAR EL ARRAY --\n// Verificamos si el output de la IA es un objeto con la clave '@graph'\n// o si es directamente el array que necesitamos.\nlet graphArray;\nif (diGenerado && Array.isArray(diGenerado[\"@graph\"])) {\n  // Caso 1: El formato es correcto, con {\"@graph\": [...]}\n  graphArray = diGenerado[\"@graph\"];\n} else if (Array.isArray(diGenerado)) {\n  // Caso 2: La IA devolvió directamente el array [...]\n  graphArray = diGenerado;\n  // Reconstruimos el objeto principal para que tenga la estructura correcta\n  diGenerado = { \"@graph\": graphArray };\n} else {\n  // Si no es ninguna de las dos, no podemos continuar.\n  throw new Error(\"El JSON generado por la IA no contiene un array en la clave '@graph' ni es un array en sí mismo.\");\n}\n\n// 1. REEMPLAZAR EL @CONTEXT POR EL CORRECTO Y DEFINITIVO\nconst contextoCorrecto = {\n    \"@vocab\": \"http://example.org/atdf102#\",\n    \"xsd\": \"http://www.w3.org/2001/XMLSchema#\",\n    \"rdfs\": \"http://www.w3.org/2000/01/rdf-schema#\",\n    \"schema\": \"http://schema.org/\",\n    \"qm\": \"http://example.org/qm-standards/\",\n    \"Curso\": \"atdf:Curso\", \"UnidadDidactica\": \"atdf:UnidadDidactica\", \"AprendizajeEsperado\": \"atdf:AprendizajeEsperado\",\n    \"IndicadorLogro\": \"atdf:IndicadorLogro\", \"ActividadAprendizaje\": \"atdf:ActividadAprendizaje\", \"Evaluacion\": \"atdf:Evaluacion\",\n    \"InstrumentoEvaluacion\": \"atdf:InstrumentoEvaluacion\", \"RecursoAprendizaje\": \"atdf:RecursoAprendizaje\", \"Semana\": \"atdf:Semana\",\n    \"PoliticaCurso\": \"atdf:PoliticaCurso\", \"ResultadoAprendizajeGeneral\": \"atdf:ResultadoAprendizajeGeneral\",\n    \"codigo\": \"schema:identifier\", \"nombre\": \"schema:name\", \"descripcion\": \"schema:description\",\n    \"creditos\": \"atdf:creditos\", \"numeroSemanas\": { \"@id\": \"atdf:numeroSemanas\", \"@type\": \"xsd:integer\" },\n    \"fechaInicio\": { \"@id\": \"atdf:fechaInicio\", \"@type\": \"xsd:date\" }, \"modalidad\": \"atdf:modalidad\",\n    \"docenteExperto\": \"atdf:docenteExperto\", \"disenadorInstruccional\": \"atdf:disenadorInstruccional\", \"gpo\": \"atdf:gpo\",\n    \"horasDirectasTotal\": { \"@id\": \"atdf:horasDirectasTotal\", \"@type\": \"xsd:integer\" }, \"verboAccion\": \"atdf:verboAccion\",\n    \"nivelTaxonomico\": \"atdf:nivelTaxonomico\", \"tipoEvaluacion\": { \"@id\": \"atdf:tipoEvaluacion\", \"@type\": \"xsd:string\" },\n    \"metodoEvaluacion\": \"atdf:metodoEvaluacion\", \"procedimientoEvaluacion\": \"atdf:procedimientoEvaluacion\",\n    \"pesoCalificacion\": { \"@id\": \"atdf:pesoCalificacion\", \"@type\": \"xsd:decimal\" }, \"retroalimentacion\": \"atdf:retroalimentacion\",\n    \"estrategiaDidactica\": { \"@id\": \"atdf:estrategiaDidactica\", \"@container\": \"@list\" }, \"formatoRecurso\": \"atdf:formatoRecurso\",\n    \"urlRecurso\": { \"@id\": \"schema:url\", \"@type\": \"@id\" }, \"fuente\": \"schema:citation\",\n    \"numeroSemanaOrdinal\": { \"@id\": \"atdf:numeroSemanaOrdinal\", \"@type\": \"xsd:integer\" },\n    \"tieneUnidad\": { \"@id\": \"atdf:tieneUnidad\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"tieneAE\": { \"@id\": \"atdf:tieneAE\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"tieneIndicador\": { \"@id\": \"atdf:tieneIndicador\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"contieneSemana\": { \"@id\": \"atdf:contieneSemana\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"contieneActividad\": { \"@id\": \"atdf:contieneActividad\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"contieneEvaluacion\": { \"@id\": \"atdf:contieneEvaluacion\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"ocurreEn\": { \"@id\": \"atdf:ocurreEn\", \"@type\": \"@id\" },\n    \"evaluaIndicador\": { \"@id\": \"atdf:evaluaIndicador\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"apoyaIndicador\": { \"@id\": \"atdf:apoyaIndicador\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"utilizaInstrumento\": { \"@id\": \"atdf:utilizaInstrumento\", \"@type\": \"@id\" },\n    \"utilizaRecurso\": { \"@id\": \"atdf:utilizaRecurso\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"precede\": { \"@id\": \"atdf:precede\", \"@type\": \"@id\" },\n    \"cumpleEstandarQA\": { \"@id\": \"qm:relatesToStandard\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"tienePolitica\": { \"@id\": \"atdf:tienePolitica\", \"@type\": \"@id\", \"@container\": \"@set\" },\n    \"tieneResultadoGeneral\": {\"@id\": \"atdf:tieneResultadoGeneral\", \"@type\": \"@id\"}\n};\ndiGenerado[\"@context\"] = contextoCorrecto;\n\n// 2. CORREGIR EL FORMATO DE LOS ENLACES\nconst propiedadesDeEnlace = [\n  'tieneUnidad', 'tieneAE', 'tieneIndicador', 'contieneSemana',  \n  'contieneActividad', 'contieneEvaluacion', 'ocurreEn',  \n  'evaluaIndicador', 'apoyaIndicador', 'utilizaInstrumento',  \n  'utilizaRecurso', 'unidadesDidacticas', 'semanas',  \n  'actividadesAprendizaje', 'evaluaciones', 'indicadoresLogro',  \n  'instrumentoEvaluacionRef'\n];\n\n// Ahora iteramos sobre la variable segura 'graphArray'\nfor (const entidad of graphArray) {\n  for (const propiedad of propiedadesDeEnlace) {\n    if (entidad[propiedad]) {\n      const valor = entidad[propiedad];\n      if (Array.isArray(valor)) {\n        entidad[propiedad] = valor.map(id => (typeof id === 'string' ? { \"@id\": id } : id));\n      } else if (typeof valor === 'string') {\n        entidad[propiedad] = { \"@id\": valor };\n      }\n    }\n  }\n}\n\n// Aseguramos que el objeto principal tenga el array procesado antes de retornar\ndiGenerado[\"@graph\"] = graphArray;\n\nreturn diGenerado;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        920,
+        240
+      ],
+      "id": "2f0c7ccb-ecab-4b0b-85a9-06cc1cbe7ea4",
+      "name": "Refinamiento"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Obtiene los datos binarios del archivo de texto\nconst binaryData = $input.item.binary.data;\n// Convierte el buffer a un string UTF-8\nconst text = Buffer.from(binaryData.data, 'base64').toString('utf-8');\n// Retorna el texto en la estructura que n8n espera\nreturn { json: { textoExtraido: text } };"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        240
+      ],
+      "id": "9e6a6e30-afb5-422e-a7f0-d736cf59b195",
+      "name": "Binary a JSON"
+    },
+    {
+      "parameters": {
+        "command": "={{ $json.files[0].fileExtension === 'docx' ? 'pandoc -f docx -t plain /uploads/input_file.docx -o /uploads/output.txt' : 'pdftotext /uploads/input_file.pdf /uploads/output.txt' }}"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        -120,
+        240
+      ],
+      "id": "9d9b9ebd-f78b-49c4-9f6e-01a7bdc8d04d",
+      "name": "Conversión a texto"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  id,\n  nombre,\n  version,\n  fecha_creacion,\n  jsonb_pretty(contenido_jsonld) AS contenido_formateado\nFROM\n  diseños_instruccionales\nORDER BY\n  fecha_creacion DESC;",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -820,
+        280
+      ],
+      "id": "8ad78dbc-fecc-4f53-935f-4d7b136b50d1",
+      "name": "Ver db",
+      "credentials": {
+        "postgres": {
+          "id": "Tk6bUOMnU373XUjE",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Embeddings Google Gemini": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Guardar en /uploads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Guardar en /uploads": {
+      "main": [
+        [
+          {
+            "node": "Conversión a texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Leer output.txt": {
+      "main": [
+        [
+          {
+            "node": "Binary a JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "DI a JSON-LD",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Construir Prompt": {
+      "main": [
+        [
+          {
+            "node": "DI a JSON-LD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "DI a JSON-LD": {
+      "main": [
+        [
+          {
+            "node": "Refinamiento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Refinamiento": {
+      "main": [
+        [
+          {
+            "node": "Execute a SQL query",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Binary a JSON": {
+      "main": [
+        [
+          {
+            "node": "Construir Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conversión a texto": {
+      "main": [
+        [
+          {
+            "node": "Leer output.txt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f0192b04-422b-4c8d-8749-ccdea250416e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "0dc0b610ebbc95ef805f388316e4643c588f14f7813a84befc6dedd6622487ea"
+  },
+  "id": "eIH1KPVjlr26fN05",
+  "tags": []
+}
